@@ -122,6 +122,75 @@ RcppExport SEXP _arrR_seagrass_rcpp_diffuse_values(SEXP seafloorSEXP, SEXP cell_
     UNPROTECT(1);
     return rcpp_result_gen;
 }
+// rcpp_get_adjacencies
+Rcpp::IntegerMatrix rcpp_get_adjacencies(Rcpp::IntegerVector dimensions, bool torus);
+static SEXP _arrR_seagrass_rcpp_get_adjacencies_try(SEXP dimensionsSEXP, SEXP torusSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::traits::input_parameter< Rcpp::IntegerVector >::type dimensions(dimensionsSEXP);
+    Rcpp::traits::input_parameter< bool >::type torus(torusSEXP);
+    rcpp_result_gen = Rcpp::wrap(rcpp_get_adjacencies(dimensions, torus));
+    return rcpp_result_gen;
+END_RCPP_RETURN_ERROR
+}
+RcppExport SEXP _arrR_seagrass_rcpp_get_adjacencies(SEXP dimensionsSEXP, SEXP torusSEXP) {
+    SEXP rcpp_result_gen;
+    {
+        Rcpp::RNGScope rcpp_rngScope_gen;
+        rcpp_result_gen = PROTECT(_arrR_seagrass_rcpp_get_adjacencies_try(dimensionsSEXP, torusSEXP));
+    }
+    Rboolean rcpp_isInterrupt_gen = Rf_inherits(rcpp_result_gen, "interrupted-error");
+    if (rcpp_isInterrupt_gen) {
+        UNPROTECT(1);
+        Rf_onintr();
+    }
+    bool rcpp_isLongjump_gen = Rcpp::internal::isLongjumpSentinel(rcpp_result_gen);
+    if (rcpp_isLongjump_gen) {
+        Rcpp::internal::resumeJump(rcpp_result_gen);
+    }
+    Rboolean rcpp_isError_gen = Rf_inherits(rcpp_result_gen, "try-error");
+    if (rcpp_isError_gen) {
+        SEXP rcpp_msgSEXP_gen = Rf_asChar(rcpp_result_gen);
+        UNPROTECT(1);
+        Rf_error(CHAR(rcpp_msgSEXP_gen));
+    }
+    UNPROTECT(1);
+    return rcpp_result_gen;
+}
+// rcpp_get_reef
+Rcpp::NumericMatrix rcpp_get_reef(Rcpp::NumericMatrix seafloor);
+static SEXP _arrR_seagrass_rcpp_get_reef_try(SEXP seafloorSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::traits::input_parameter< Rcpp::NumericMatrix >::type seafloor(seafloorSEXP);
+    rcpp_result_gen = Rcpp::wrap(rcpp_get_reef(seafloor));
+    return rcpp_result_gen;
+END_RCPP_RETURN_ERROR
+}
+RcppExport SEXP _arrR_seagrass_rcpp_get_reef(SEXP seafloorSEXP) {
+    SEXP rcpp_result_gen;
+    {
+        Rcpp::RNGScope rcpp_rngScope_gen;
+        rcpp_result_gen = PROTECT(_arrR_seagrass_rcpp_get_reef_try(seafloorSEXP));
+    }
+    Rboolean rcpp_isInterrupt_gen = Rf_inherits(rcpp_result_gen, "interrupted-error");
+    if (rcpp_isInterrupt_gen) {
+        UNPROTECT(1);
+        Rf_onintr();
+    }
+    bool rcpp_isLongjump_gen = Rcpp::internal::isLongjumpSentinel(rcpp_result_gen);
+    if (rcpp_isLongjump_gen) {
+        Rcpp::internal::resumeJump(rcpp_result_gen);
+    }
+    Rboolean rcpp_isError_gen = Rf_inherits(rcpp_result_gen, "try-error");
+    if (rcpp_isError_gen) {
+        SEXP rcpp_msgSEXP_gen = Rf_asChar(rcpp_result_gen);
+        UNPROTECT(1);
+        Rf_error(CHAR(rcpp_msgSEXP_gen));
+    }
+    UNPROTECT(1);
+    return rcpp_result_gen;
+}
 // rcpp_mineralization
 void rcpp_mineralization(Rcpp::NumericMatrix seafloor, double detritus_mineralization, double detritus_fish_decomp);
 static SEXP _arrR_seagrass_rcpp_mineralization_try(SEXP seafloorSEXP, SEXP detritus_mineralizationSEXP, SEXP detritus_fish_decompSEXP) {
@@ -319,6 +388,8 @@ static int _arrR_seagrass_RcppExport_validate(const char* sig) {
         signatures.insert("double(*rcpp_allocation_ratio)(double,double,double,double,double)");
         signatures.insert("double(*rcpp_convert_nutr)(double,std::string)");
         signatures.insert("void(*rcpp_diffuse_values)(Rcpp::NumericMatrix,Rcpp::IntegerMatrix,double,double,double)");
+        signatures.insert("Rcpp::IntegerMatrix(*rcpp_get_adjacencies)(Rcpp::IntegerVector,bool)");
+        signatures.insert("Rcpp::NumericMatrix(*rcpp_get_reef)(Rcpp::NumericMatrix)");
         signatures.insert("void(*rcpp_mineralization)(Rcpp::NumericMatrix,double,double)");
         signatures.insert("void(*rcpp_nutr_input)(Rcpp::NumericMatrix,double)");
         signatures.insert("void(*rcpp_nutr_output)(Rcpp::NumericMatrix,double,double)");
@@ -333,6 +404,8 @@ RcppExport SEXP _arrR_seagrass_RcppExport_registerCCallable() {
     R_RegisterCCallable("arrR.seagrass", "_arrR_seagrass_rcpp_allocation_ratio", (DL_FUNC)_arrR_seagrass_rcpp_allocation_ratio_try);
     R_RegisterCCallable("arrR.seagrass", "_arrR_seagrass_rcpp_convert_nutr", (DL_FUNC)_arrR_seagrass_rcpp_convert_nutr_try);
     R_RegisterCCallable("arrR.seagrass", "_arrR_seagrass_rcpp_diffuse_values", (DL_FUNC)_arrR_seagrass_rcpp_diffuse_values_try);
+    R_RegisterCCallable("arrR.seagrass", "_arrR_seagrass_rcpp_get_adjacencies", (DL_FUNC)_arrR_seagrass_rcpp_get_adjacencies_try);
+    R_RegisterCCallable("arrR.seagrass", "_arrR_seagrass_rcpp_get_reef", (DL_FUNC)_arrR_seagrass_rcpp_get_reef_try);
     R_RegisterCCallable("arrR.seagrass", "_arrR_seagrass_rcpp_mineralization", (DL_FUNC)_arrR_seagrass_rcpp_mineralization_try);
     R_RegisterCCallable("arrR.seagrass", "_arrR_seagrass_rcpp_nutr_input", (DL_FUNC)_arrR_seagrass_rcpp_nutr_input_try);
     R_RegisterCCallable("arrR.seagrass", "_arrR_seagrass_rcpp_nutr_output", (DL_FUNC)_arrR_seagrass_rcpp_nutr_output_try);
@@ -346,6 +419,8 @@ static const R_CallMethodDef CallEntries[] = {
     {"_arrR_seagrass_rcpp_allocation_ratio", (DL_FUNC) &_arrR_seagrass_rcpp_allocation_ratio, 5},
     {"_arrR_seagrass_rcpp_convert_nutr", (DL_FUNC) &_arrR_seagrass_rcpp_convert_nutr, 2},
     {"_arrR_seagrass_rcpp_diffuse_values", (DL_FUNC) &_arrR_seagrass_rcpp_diffuse_values, 5},
+    {"_arrR_seagrass_rcpp_get_adjacencies", (DL_FUNC) &_arrR_seagrass_rcpp_get_adjacencies, 2},
+    {"_arrR_seagrass_rcpp_get_reef", (DL_FUNC) &_arrR_seagrass_rcpp_get_reef, 1},
     {"_arrR_seagrass_rcpp_mineralization", (DL_FUNC) &_arrR_seagrass_rcpp_mineralization, 3},
     {"_arrR_seagrass_rcpp_nutr_input", (DL_FUNC) &_arrR_seagrass_rcpp_nutr_input, 2},
     {"_arrR_seagrass_rcpp_nutr_output", (DL_FUNC) &_arrR_seagrass_rcpp_nutr_output, 3},

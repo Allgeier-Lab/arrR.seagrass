@@ -4,9 +4,12 @@
 \name{arrR.seagrass}
 \alias{arrR.seagrass}
 \alias{arrR.seagrass-package}
-\title{arrR.seagrass: Seagrass dynamics of the arrR simulation model}
+\title{arrR.seagrass: Seagrass sub-processes of the arrR simulation model}
 \description{
-ADD TEXT
+The goal of arrR.seagrass  is to provide all sub-processes related to the grid-based 
+simulation environment of the arrR simulation model. This includes all procceses 
+related to seagrass growth and the water column i.e., all  sub-processes that are 
+simulated grid-based.
 }
 \author{
 \strong{Maintainer}: Maximilian H.K. Hesselbarth \email{mhk.hesselbarth@gmail.com} (\href{https://orcid.org/0000-0003-1125-9918}{ORCID})

@@ -76,6 +76,51 @@ rcpp_diffuse_values <- function(seafloor, cell_adj, nutrients_diffusion, detritu
     invisible(.Call(`_arrR_seagrass_rcpp_diffuse_values`, seafloor, cell_adj, nutrients_diffusion, detritus_diffusion, detritus_fish_diffusion))
 }
 
+#' rcpp_get_adjacencies
+#'
+#' @description
+#' Rcpp get adjacencies
+#'
+#' @param dimensions Vector with number or rows and cols
+#' @param torus Logical if true, torus translation is used.
+#'
+#' @details
+#' Get matrix with cell IDs of all neighboring cells. Indices start with 0
+#' according to C++ indexing.
+#'
+#' @references
+#' Code adapted from Robert J. Hijmans (2020). raster: Geographic Data Analysis
+#' and Modeling. R package version 3.4-5. <https://CRAN.R-project.org/package=raster>
+#'
+#' @return matrix
+#'
+#' @aliases rcpp_get_adjacencies
+#' @rdname rcpp_get_adjacencies
+#'
+#' @keywords internal
+rcpp_get_adjacencies <- function(dimensions, torus) {
+    .Call(`_arrR_seagrass_rcpp_get_adjacencies`, dimensions, torus)
+}
+
+#' rcpp_get_reef
+#'
+#' @description
+#' Rcpp get reef matrix
+#'
+#' @param seafloor Matrix with seafloor values.
+#'
+#' @details
+#' Get matrix with cell id and coordinates of reef cells.
+#'
+#' @return matrix
+#'
+#' @aliases rcpp_get_reef
+#' @rdname rcpp_get_reef
+#'
+rcpp_get_reef <- function(seafloor) {
+    .Call(`_arrR_seagrass_rcpp_get_reef`, seafloor)
+}
+
 #' rcpp_mineralization
 #'
 #' @description
