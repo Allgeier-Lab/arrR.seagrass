@@ -1,6 +1,6 @@
 Package: arrR.seagrass
 Type: Package
-Title: Seagrass dynamics of the arrR simulation model
+Title: Seagrass sub-processes of the arrR simulation model
 Version: 0.1.0
 Authors@R: c(person("Maximilian H.K.", "Hesselbarth",
              role = c("aut", "cre"),
@@ -19,8 +19,9 @@ Authors@R: c(person("Maximilian H.K.", "Hesselbarth",
              email = "jeallg@umich.edu", 
              comment = c(ORCID = "0000-0002-9005-6432")))
 Maintainer: Maximilian H.K. Hesselbarth <mhk.hesselbarth@gmail.com>
-Description: The goal of arrR is to simulate seagrass growth around artificial reefs. 
-  arrR.seagrass provides all sub-processes related to the grid-based simulation environment.
+Description: The goal of arrR.seagrass is to provide all sub-processes related to the grid-based simulation environment
+  of the arrR simulation model. This includes all procceses related to seagrass growth and the water column i.e., all 
+  sub-processes that are simulated grid-based.
 License: GPL (>= 3)
 Encoding: UTF-8
 Depends: R (>= 3.1)
