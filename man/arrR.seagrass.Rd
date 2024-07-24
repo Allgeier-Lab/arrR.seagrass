@@ -2,8 +2,8 @@
 % Please edit documentation in R/arrR.seagrass-packages.R
 \docType{package}
 \name{arrR.seagrass}
-\alias{arrR.seagrass}
 \alias{arrR.seagrass-package}
+\alias{arrR.seagrass}
 \title{arrR.seagrass: Seagrass sub-processes of the arrR simulation model}
 \description{
 The goal of arrR.seagrass  is to provide all sub-processes related to the grid-based 

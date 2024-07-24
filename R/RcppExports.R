@@ -278,5 +278,5 @@ rcpp_seagrass_growth <- function(seafloor, bg_v_max, bg_k_m, bg_gamma, ag_v_max,
 
 # Register entry points for exported C++ functions
 methods::setLoadAction(function(ns) {
-    .Call('_arrR_seagrass_RcppExport_registerCCallable', PACKAGE = 'arrR.seagrass')
+    .Call(`_arrR_seagrass_RcppExport_registerCCallable`)
 })
